@@ -1,0 +1,142 @@
+/* ---------- Popular Food Section ---------- */
+.food-section {
+  padding: 2rem;
+  background-color: #e4b0ae;
+  text-align: center;
+}
+
+/* Main heading */
+.main-heading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Grid container */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1500px;
+  margin: 50px auto;
+}
+
+/* Each food card */
+.food-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(235, 1, 1, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  min-height: 320px;
+}
+
+.food-card:hover {
+  box-shadow: 0 6px 12px rgba(10, 10, 10, 0.2);
+  background-color: #ff6600;
+  transform: scale(1.02);
+}
+
+/* Image inside card */
+.food-image {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* Food name */
+.food-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+/* Description */
+.food-description {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+/* Price */
+.food-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2c7;
+  margin-bottom: 0.5rem;
+}
+
+/* Rating */
+.food-rating {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.star {
+  color: #ccc;
+  margin: 0 1px;
+}
+
+.star.filled {
+  color: gold;
+}
+
+/* Order button */
+.order-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 8px 16px;
+  background-color: #ff512f;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.order-btn:hover {
+  background-color: #4fdd24;
+  transform: scale(1.05);
+}
+
+/* ---------- Mobile Adjustments ---------- */
+@media (max-width: 600px) {
+  .food-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .food-card {
+    min-height: 300px;
+    padding: 0.8rem;
+  }
+
+  .food-image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .food-name {
+    font-size: 1.2rem;
+  }
+
+  .food-description {
+    font-size: 1rem;
+  }
+
+  .order-btn {
+    padding: 4px 8px;
+    font-size: 1.1rem;
+  }
+}
