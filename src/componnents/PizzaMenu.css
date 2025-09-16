@@ -101,7 +101,6 @@
 }
 
 /* ---------------- Rectangle Size Selection ---------------- */
-/* ---------------- Rectangle Size Selection ---------------- */
 .pizza-card .sizes {
   margin-bottom: 15px;
 }
@@ -125,8 +124,7 @@
 
 /* Selected state: full rectangle filled */
 .pizza-card .sizes input[type="radio"]:checked + span {
-  background-color: #ff512f; /* rectangle filled */
-  background-attachment: fixed;
+  background-color: #ff512f;
   color: white;
   display: inline-block;
   width: 100%;
@@ -138,36 +136,86 @@
 .pizza-card .sizes label span:hover {
   background-color: #ff7845;
   color: white;
-  
   width: 100%;
 }
-
-
-/* ---------------- Responsive ---------------- */
 @media (max-width: 600px) {
   .pizza-menu {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+  }
+
+  .pizza-circle {
+    flex: 0 0 calc(33.33% - 10px); /* 3 per row */
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s ease;
   }
 
   .pizza-circle img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
   }
 
+  .pizza-circle p {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  
+    -webkit-box-orient: vertical;
+  }
+
+  /* ---------------- Active Item (Swap to next row center) ---------------- */
+  .pizza-circle.active {
+    flex: 0 0 auto; /* auto width so it centers nicely */
+    margin: 10px auto 0 auto; /* center horizontally */
+    order: 99; /* push to the bottom row */
+    z-index: 10;
+    transform: translateY(0);
+  }
+
+  /* Smooth transition for other items */
+  .pizza-circle:not(.active) {
+    transition: transform 0.4s ease, order 0.4s ease, margin 0.4s ease;
+  }
+
+  /* Pizza detail card */
   .pizza-card {
-    padding: 1.5rem;
-    max-width: 90%;
+    width: 90%;
+    max-width: 350px;
+    margin: 15px auto 0 auto; /* center under active item */
+    padding: 1.2rem;
+    border-radius: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #fff;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.4s ease forwards;
   }
 
   .pizza-card img {
     width: 120px;
     height: 120px;
+    margin: 0 auto 1rem auto;
+    display: block;
+    border-radius: 50%;
+    border: 4px solid orange;
+    object-fit: cover;
   }
 
-  .pizza-card .sizes label {
-    padding: 5px 10px;
-    margin: 0 5px;
+  @keyframes slideDown {
+    from { transform: translateY(-15px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
   }
 }

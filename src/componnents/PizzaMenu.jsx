@@ -64,40 +64,49 @@ const PizzaMenu = () => {
       </div>
 
       {/* Selected Pizza Details */}
-      {selectedPizza && (
-        <div className="pizza-card">
-          <img src={selectedPizza.img} alt={selectedPizza.name} />
-          <h3>{selectedPizza.name}</h3>
+{selectedPizza && (
+  <div
+    className="pizza-card"
+    style={{
+      transform: "translateX(0)",
+      opacity: 1,
+      transition: "all 0.4s ease",
+    }}
+    key={selectedPizza.name} // key forces re-render, triggers CSS transition
+  >
+    <img src={selectedPizza.img} alt={selectedPizza.name} />
+    <h3>{selectedPizza.name}</h3>
 
-          <p className="desc">
-            {readMore
-              ? selectedPizza.description
-              : selectedPizza.description.slice(0, 100) + "..."}
-            <span className="read-more" onClick={toggleReadMore}>
-              {readMore ? " Show Less" : " Read More"}
-            </span>
-          </p>
+    <p className="desc">
+      {readMore
+        ? selectedPizza.description
+        : selectedPizza.description.slice(0, 100) + "..."}
+      <span className="read-more" onClick={toggleReadMore}>
+        {readMore ? " Show Less" : " Read More"}
+      </span>
+    </p>
 
-          <p className="price">Price: Rs {selectedPizza.prices[selectedSize]}</p>
+    <p className="price">Price: Rs {selectedPizza.prices[selectedSize]}</p>
 
-          <div className="sizes">
-            {["S", "M", "L"].map((size) => (
-              <label key={size}>
-                <input
-                  type="radio"
-                  name="size"
-                  value={size}
-                  checked={selectedSize === size}
-                  onChange={(e) => setSelectedSize(e.target.value)}
-                />
-                <span>{size}</span>
-              </label>
-            ))}
-          </div>
+    <div className="sizes">
+      {["S", "M", "L"].map((size) => (
+        <label key={size}>
+          <input
+            type="radio"
+            name="size"
+            value={size}
+            checked={selectedSize === size}
+            onChange={(e) => setSelectedSize(e.target.value)}
+          />
+          <span>{size}</span>
+        </label>
+      ))}
+    </div>
 
-          <button className="buy-btn">Buy Now</button>
-        </div>
-      )}
+    <button className="buy-btn">Buy Now</button>
+  </div>
+)}
+
     </div>
   );
 };
