@@ -4,6 +4,7 @@ import './App.css';
 
 import PizzaMenu from './componnents/PizzaMenu';
 import PopularFoodItems from './componnents/PopularFoodItems';
+import Nike from './componnents/Nike';
 function App() {
   const slides = [
     { src: "/images-removebg-preview.png", alt: "Cheese Pizza" },
@@ -87,6 +88,7 @@ function App() {
       </section>
           <PopularFoodItems />
          <PizzaMenu />
+         <Nike />
       
     </div>
 

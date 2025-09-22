@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./PizzaMenu.css";
 
 const pizzas = [
@@ -33,80 +34,77 @@ const pizzas = [
 ];
 
 const PizzaMenu = () => {
-  const [selectedPizza, setSelectedPizza] = useState(null);
-  const [selectedSize, setSelectedSize] = useState("M");
+  const [selectedPizza, setSelectedPizza] = useState(pizzas[0]);
+  const [selectedSize, setSelectedSize] = useState("S");
   const [readMore, setReadMore] = useState(false);
 
-  const toggleReadMore = () => setReadMore(!readMore);
+  const toggleReadMore = () => setReadMore((prev) => !prev);
 
   return (
     <div className="pizza-container">
-      <h2 className="pizza-title">Our Pizza Menu</h2>
+      <h2 className="pizza-title">Pizza Menu</h2>
 
-      {/* Circular Pizza Menu */}
-      <div className="pizza-menu">
-        {pizzas.map((pizza, idx) => (
-          <div
-            key={idx}
-            className={`pizza-circle ${
-              selectedPizza?.name === pizza.name ? "active" : ""
-            }`}
-            onClick={() => {
-              setSelectedPizza(pizza);
-              setSelectedSize("M");
-              setReadMore(false);
-            }}
-          >
-            <img src={pizza.img} alt={pizza.name} />
-            <p>{pizza.name}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Selected Pizza Details */}
-{selectedPizza && (
-  <div
-    className="pizza-card"
-    style={{
-      transform: "translateX(0)",
-      opacity: 1,
-      transition: "all 0.4s ease",
-    }}
-    key={selectedPizza.name} // key forces re-render, triggers CSS transition
-  >
-    <img src={selectedPizza.img} alt={selectedPizza.name} />
-    <h3>{selectedPizza.name}</h3>
-
-    <p className="desc">
-      {readMore
-        ? selectedPizza.description
-        : selectedPizza.description.slice(0, 100) + "..."}
-      <span className="read-more" onClick={toggleReadMore}>
-        {readMore ? " Show Less" : " Read More"}
-      </span>
-    </p>
-
-    <p className="price">Price: Rs {selectedPizza.prices[selectedSize]}</p>
-
-    <div className="sizes">
-      {["S", "M", "L"].map((size) => (
-        <label key={size}>
-          <input
-            type="radio"
-            name="size"
-            value={size}
-            checked={selectedSize === size}
-            onChange={(e) => setSelectedSize(e.target.value)}
-          />
-          <span>{size}</span>
-        </label>
-      ))}
+      <div className="pizza-layout">
+        {/* Left: Circular menu */}
+        <div className="pizza-list">
+  {pizzas.map((pizza) => (
+    <div
+      key={pizza.name}
+      className={`pizza-item ${
+        selectedPizza.name === pizza.name ? "active" : ""
+      }`}
+      onClick={() => {
+        setSelectedPizza(pizza);
+        setSelectedSize("S");
+        setReadMore(false);
+      }}
+    >
+      <img src={pizza.img} alt={pizza.name} />
+      <span className="pizza-name">{pizza.name}</span>  {/* added pizza name */}
     </div>
+  ))}
+</div>
 
-    <button className="buy-btn">Buy Now</button>
-  </div>
-)}
 
+        {/* Right: Pizza details */}
+        <div className="pizza-card">
+          
+          <img src={selectedPizza.img} alt={selectedPizza.name} />
+          <h3>{selectedPizza.name}</h3>
+          <p className="desc">
+            {readMore
+              ? selectedPizza.description
+              : selectedPizza.description.slice(0, 120) + "..."}
+            <span className="read-more" onClick={toggleReadMore}>
+              {readMore ? " Show Less" : " Read More"}
+            </span>
+          </p>
+
+          <p className="price">Price: Rs {selectedPizza.prices[selectedSize]}</p>
+
+          <div className="sizes">
+            {["S", "M", "L"].map((size) => (
+              <label key={size}>
+                <input
+                  type="radio"
+                  name="size"
+                  value={size}
+                  checked={selectedSize === size}
+                  onChange={(e) => setSelectedSize(e.target.value)}
+                />
+                <span>{size}</span>
+              </label>
+            ))}
+          </div>
+
+         <button
+              className="order-btn"
+              onClick={() => navigate("/Nike")}
+            >
+              Add to Cart 🛒
+            </button>
+        </div>
+      </div>
     </div>
   );
 };
