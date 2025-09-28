@@ -17,7 +17,7 @@ const Nike = () => {
           <h3>Product Details</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla
-            ducimus iusto.
+            ducimus 
           </p>
           <h4>Size</h4>
           <ul className="size">

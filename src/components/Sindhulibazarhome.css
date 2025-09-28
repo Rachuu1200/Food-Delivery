@@ -1,10 +1,21 @@
 /* ---------------- Body & Global ---------------- */
+/* Remove global body background */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: black;
-  color: white;
+  background: white; /* default page background */
+  color: black;
 }
+
+/* Only Sindhulibazarhome container is black */
+.sindhulibazarhome-container {
+  background-color: black;
+  color: white;
+  min-height: 50vh;      /* full viewport height */
+  display: flex;
+  flex-direction: column; /* ensures header + hero stack vertically */
+}
+
 
 /* ---------------- Header ---------------- */
 .nav {

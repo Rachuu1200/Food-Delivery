@@ -1,0 +1,217 @@
+.featured-product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 400px;
+  min-height: 10px;
+}
+.featured-product-headline {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+  color: #e63946;
+}
+
+
+/* Top section */
+.featured-product-header {
+  display: flex;
+  gap: 100px;
+}
+
+.featured-product-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.featured-product-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.restaurant {
+  font-size: 0.85rem;
+  color: #c0392b;
+}
+
+.rating {
+  font-size: 0.9rem;
+  color: #f39c12;
+}
+
+.price {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Bottom section */
+.featured-product-footer {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 0.8rem;
+  
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.total span {
+  float: right;
+  color: #e63946;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.qty-btn.minus {
+  background: #555;
+}
+
+.qty-btn.plus {
+  background: #e63946;
+}
+
+.qty {
+  font-size: 1rem;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+.add-btn {
+  flex: 1;
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #a14949;
+}
+
+@media (max-width: 600px) {
+  .featured-product-card {
+    max-width:90%;
+    margin: 0.5rem auto;
+    padding: 0.4rem;          /* reduce padding to shrink height */
+    border-radius: 12px;
+    min-height: 0;            /* height adapts to content */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Top section: image + info */
+  .featured-product-header {
+    display: flex;
+    flex-direction: row;      /* same as desktop */
+    align-items: center;
+    justify-content: flex-start;
+    gap:90px;          /* smaller gap between image and text */
+  }
+
+  .featured-product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* Info text: reduce vertical gap */
+  .featured-product-info h3,
+  .featured-product-info p,
+  .rating,
+  .price {
+    margin: 2px 0;            /* tighter vertical spacing */
+    line-height: 1.2;         /* compact line spacing */
+  }
+
+  .featured-product-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .restaurant {
+    font-size: 0.85rem;
+  }
+
+  .rating {
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  /* Bottom section */
+  .featured-product-footer {
+    margin-top: 0.4rem;       /* reduce spacing */
+    border-top: 1px solid #eee;
+    padding-top: 0.3rem;      /* reduce height */
+  }
+
+  .total {
+   display: flex;             /* use flexbox */
+  justify-content: space-between; /* text left, price right */
+  font-size: 1rem;
+  font-weight: bold;
+  padding:7px;
+  margin-bottom: 0.5rem;
+  }
+
+  .total span {
+    float: none;
+    color: #e63946;
+  }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;                 /* smaller gap */
+  }
+
+  .qty-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .qty {
+    font-size: 1rem;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  .add-btn {
+    flex: 1;
+    padding: 8px;             /* smaller button height */
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+}

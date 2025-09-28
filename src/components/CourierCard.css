@@ -1,0 +1,87 @@
+/* ===========================
+   Courier Card Styles
+=========================== */
+.courier-card {
+  display: flex;
+  flex-direction: row;
+  background: #fffbe6;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 20px auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.courier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.courier-image {
+  flex: 1.2;
+}
+
+.courier-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.courier-content {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.courier-content h2 {
+  font-size: 22px;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  color: #222;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: #0a0a0a;
+}
+
+.send-btn {
+  background:linear-gradient(90deg, gold, #d91c1c);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.send-btn:hover {
+  background: #e55c00;
+  transform: translateY(-2px);
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .courier-card {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .courier-image {
+    height: 200px;
+  }
+}

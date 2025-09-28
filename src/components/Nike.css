@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 .wrapper {
   display: flex;
@@ -53,7 +53,7 @@ body {
   height: 100%;
   object-fit: cover; /* fill container without distortion */
   display: block;
-  transition: none; /* no zoom */
+  transition: none; /*  zoom */
 }
 
 /* Product details panel */
@@ -137,8 +137,8 @@ button:hover { background:#333; color:#fff; }
   .card-container {
     flex-direction: column;
     width: 300px;
-     max-width: 350px; 
-    height: 500px;
+     max-width: 300px; 
+    height: 600px;
     overflow: hidden;
     justify-content: center;
     align-items: center;
@@ -165,4 +165,5 @@ button:hover { background:#333; color:#fff; }
   align-items: center;
   width: 100%;
   min-height: 100vh;
+}
 }
