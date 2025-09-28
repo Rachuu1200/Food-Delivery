@@ -1,0 +1,245 @@
+body{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.pizza-container {
+  padding: 2rem;
+   max-width: 1200px;  
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pizza-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  
+ 
+}
+
+/* Layout: left circular menu + right details */
+.pizza-layout {
+  display: flex;
+  gap: 2rem;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Left circular menu */
+.pizza-list {
+  display: flex;
+  flex-direction: column; /* column for desktop/PC */
+  flex-basis: 80px;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Add margin-bottom to all items except the last */
+.pizza-list .pizza-item {
+  margin-bottom: 0; /* space between items */
+}
+
+.pizza-list .pizza-item:last-child {
+  margin-bottom: 0; /* remove extra space after last item */
+}
+
+.pizza-item {
+  width: 60px;
+  height: auto; /* change from 60px to auto to fit image + name */
+  border-radius: 50%;
+  overflow: visible; /* change from hidden to visible */
+  cursor: pointer;
+  border: 3px solid transparent;
+  background: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center image and name */
+}
+
+.pizza-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ff7a50;
+  transition: all 0.3s ease;
+  margin-bottom: 4px; /* spacing between image and name */
+}
+.pizza-item img:hover{
+  border: 3px solid #9fff50;
+}
+
+.pizza-name {
+  display: block;
+  font-size: 0.7rem;
+  text-align: center;
+  color: #030303;
+  white-space: normal; /* allow wrapping if needed */
+}
+
+/* Remove background color effect */
+.pizza-item.active,
+.pizza-item:hover {
+  transform: scale(1.1);
+
+  background: transparent; /* remove gradient background */
+}
+
+.pizza-card {
+  flex: 1;
+  background: #fffdfd;
+  padding: 1.5rem 2rem;
+  border-radius: 25px;
+  width: 100%;      /* let it fill available width */
+  max-width: 450px; /* keep desktop width reasonable */
+  height: auto;     /* remove fixed height */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  overflow: visible;  /* remove scroll */
+}
+
+
+.pizza-card img {
+  width: 180px;             /* smaller so it fits */
+  height: 180px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 0.6rem;
+  border-radius: 50%;
+  border: 5px solid #ff7a50;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+.pizza-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.pizza-card .desc {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.pizza-card .price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ff512f;
+}
+
+.buy-btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.buy-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #dd2476, #ff512f);
+}
+
+
+@media (max-width: 768px) {
+  .pizza-layout {
+    flex-direction: row; /* keep menu left, card right */
+    gap: 1rem;
+    align-items: flex-start;
+    color: black;
+  }
+
+  .pizza-list {
+    flex-direction: column; /* KEEP COLUMN for left menu */
+    flex-basis: 80px;   
+    padding-left: 4px;     
+     /* small width for menu */
+   
+  }
+
+  .pizza-card {
+    flex: 1;               /* take remaining space */
+    max-width: calc(100% - 90px); /* adjust width based on menu */
+    padding: 1rem;
+    height: auto;          /* remove fixed height */
+    overflow: visible;     /* remove scroll */cd
+  }
+
+  .pizza-card img {
+    width: 120px;          /* smaller image for mobile */
+    height: 120px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .pizza-layout {
+    flex-direction: row;      /* menu left, card right */
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pizza-list {
+    flex-basis: 60px;  
+    padding-left: 4px;
+    color: black;  /       /* slightly smaller menu */
+    
+  }
+
+  .pizza-card {
+    flex: 1;                  /* remaining space for card */
+    max-width: calc(100% - 70px); /* width minus menu */
+    padding: 0.8rem;
+    height: auto;
+    overflow: visible;
+  }
+
+  .pizza-card img {
+    width: 100px;             /* smaller image for mobile */
+    height: 100px;
+  }
+
+  .pizza-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .pizza-card .desc {
+    font-size: 0.8rem;
+  }
+
+  .pizza-card .price {
+    font-size: 0.95rem;
+  }
+
+  .buy-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+
+  .buy-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
